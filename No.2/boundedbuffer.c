@@ -33,7 +33,7 @@ int produce_item()
 }
 
 // 버퍼에 아이템을 추가하는 함수
-int insert_item(int item)
+int send_msg(int item)
 {
     int status;
     // 뮤텍스 잠금
@@ -93,7 +93,7 @@ void *producer(void *arg)
     while (1)
     {
         item = produce_item(); // 아이템 생성
-        insert_item(item);     // 생성된 아이템을 버퍼에 추가
+        send_msg(item);     // 생성된 아이템을 버퍼에 추가
     }
 }
 
